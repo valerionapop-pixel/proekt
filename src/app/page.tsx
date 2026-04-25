@@ -10,12 +10,7 @@ import { animals } from "@/data/animals";
 import { demoShelterVideoId, mapEmbedUrl, siteContacts, siteUrl } from "@/data/site";
 import { dictionaries, resolveLocale } from "@/i18n/translations";
 
-/** Hero background: optimized via next/image (replaces missing / heavy MP4). */
-const HERO_BACKGROUND_SRC =
-  "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1920&q=75";
-
-const ogImageUrl =
-  "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80";
+const ogImageUrl = new URL("/images/pawka-logo-dark.svg", siteUrl).href;
 
 type HomePageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -43,10 +38,10 @@ export async function generateMetadata({ searchParams }: HomePageProps): Promise
       description,
       siteName: locale === "ru" ? "Лапка" : "Pawka Shelter",
       locale: locale === "ru" ? "ru_RU" : "en_US",
-      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: title }]
+      images: [{ url: ogImageUrl, alt: title }]
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
       images: [ogImageUrl]
@@ -356,19 +351,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       </section>
 
       <section className="hero">
-        <div className="hero-media-wrap" aria-hidden>
-          <Image
-            src={HERO_BACKGROUND_SRC}
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            className="hero-photo"
-          />
-        </div>
-        <div className="hero-overlay" />
-
         <div className="page-shell">
           <Header locale={locale} dict={dict} />
 

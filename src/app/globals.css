@@ -340,32 +340,13 @@ a {
   min-height: 76vh;
   display: flex;
   flex-direction: column;
-}
-
-.hero-media-wrap,
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-media-wrap {
-  z-index: 0;
-}
-
-.hero-overlay {
-  z-index: 1;
   background: linear-gradient(
-    90deg,
-    rgba(66, 43, 29, 0.86) 0%,
-    rgba(66, 43, 29, 0.58) 45%,
-    rgba(66, 43, 29, 0.45) 100%
+    125deg,
+    #3d2a1f 0%,
+    var(--color-brown) 38%,
+    #5c4336 72%,
+    #4a3528 100%
   );
-}
-
-.hero-photo {
-  object-fit: cover;
 }
 
 .hero-grid {
